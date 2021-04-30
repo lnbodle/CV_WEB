@@ -7,12 +7,13 @@
       <link href="https://unpkg.com/tailwindcss@^2/dist/tailwind.min.css" rel="stylesheet">
       <link rel="stylesheet" href="style.css">
       <script src="earth.js"></script>
+      <script src="shapes.js"></script>
       <script src="sketch.js"></script>
    </head>
    <body>
 
-    <div class="grid grid-flow-col gird-rows-4 gap-4">
-         <div class="window row-span-2">
+    <div class="grid grid-flow-col gird-row-5 gap-4">
+         <div class="window row-span-1">
             <p class="title">Mes compétances</p>
             <div id="sketch_test"> </div>
             <div class="icon-grid">
@@ -24,11 +25,17 @@
                <span class="fab fa-symfony icon"></span>
             </div>
          </div>
-         <div  class="window row-span-3">
+         <div  class="window col-span-3 row-span-2">
+            <p class="title">Info Personnels</p>
+            <p class="text">Lino Blondelle</p>
+            <p class="text">07.81.87.63.74</p>
+            <p class="text">lino.blondelle@outlook.fr</p>
+         </div>
+         <div  class="window col-span-1 ">
           <p class="title">A props de moi</p>
           <p class="text">Etudiant en informatique passioné par la technologie et l'art.</p>
        </div>
-         <div  class="window col-span-2">
+         <div  class="window col-span-1">
             <p class="title">Terre.obj</p>
             <div id="sketch_presentation"> </div>
          </div>
@@ -37,10 +44,14 @@
             <p class="text">> Ce site utilise la libriaries graphique P5.js</p>
             <p class="text">> Pour le reste uniquement de l'HTML, JS, et CSS.</p>
          </div>
-         <div  class="window col-span-1">
+         <div  class="window col-span-1 ">
             <p class="title">Ma formation</p>
             <p class="text">Bac Pro Communication Visuel </p>
             <p class="text">Dut Informatique Graphique</p>
+         </div>
+         <div  class="window col-span-1">
+            <p class="title">shapes.exe</p>
+            <div id="shapes"> </div>
          </div>
       </div>
     </div>

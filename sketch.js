@@ -1,1 +1,2 @@
-var mySecondSketch = new p5(earth);
+var earthSketch = new p5(earth);
+var shapesSketch = new p5(shapes);
