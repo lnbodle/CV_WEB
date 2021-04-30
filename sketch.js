@@ -1,0 +1,1 @@
+var mySecondSketch = new p5(earth);
