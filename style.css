@@ -6,7 +6,10 @@
      
      font-family: AkiraBold;
      /*text-shadow: 3px 3px 3px  rgb(15, 15, 15);*/
+     cursor: url('img/cursor.png'), auto;
  }
+
+
 
  .icon {
     font-size: 3rem;

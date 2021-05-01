@@ -10,7 +10,7 @@ var earth = function(p) {
     sketchCanvas.parent('#sketch_presentation');
     tex = p.loadImage('tex_earth.jpg');
     p.angleMode(p.DEGREES);
-
+      
   
   
     };
@@ -31,6 +31,7 @@ var earth = function(p) {
       p.background(0,0,0,0);
       p.noFill();
       p.stroke(255);
+      p.strokeWeight(2);
       
 
       for (let i = 0 ; i<4 ; i+= 1) {

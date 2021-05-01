@@ -20,7 +20,7 @@ var shapes = function(p) {
              p.noFill();
             p.stroke(255);
             p.strokeWeight(2);
-              strange(0,0,size,20,0);
+              strange(0,0,size,10,0);
    
         
         var canvasDiv = document.getElementById('shapes');
@@ -38,11 +38,13 @@ var shapes = function(p) {
             
             let px = x + p.sin(i+time)*(size+n);
             let py = y - p.cos(i+time)*(size+n);
-
+            p.fill(255);
+            p.text('word', px, py);
             let d = p.dist(px,py,p.mouseX - p.width/2,p.mouseY-p.height/2);
-            if (d<50) {
-            px = x + p.sin(i+time)*(size+n)*d/50;
-            py = y - p.cos(i+time)*(size+n)*d/50;
+            if (d<size) {
+            px = x + p.sin(i+time)*(d+n);
+            py = y - p.cos(i+time)*(d+n);
+            
             }
 
             p.vertex(px, py);
