@@ -10,13 +10,18 @@
       <script src="shapes.js"></script>
       <script src="sketch.js"></script>
    </head>
-   <body>
-
-    <div class="grid grid-flow-col gird-row-5 gap-4">
-         <div class="window row-span-1">
-            <p class="title">Mes compétances</p>
-            <div id="sketch_test"> </div>
-            <div class="icon-grid">
+   <body style="background-color: #11151D;">
+   
+   
+    <div class="grid lg:grid-cols-3 sm:grid-cols-1 grid-flow-row  gap-8 m-24">
+      <div  class="window rounded shadow-md shadow-inner" >
+         <p class="title bg-gradient-to-r from-green-400 to-red-400">Info Personnels</p>
+         <p class="text">Nom : Lino Blondelle <br>Tel : 07.81.87.63.74 <br>Email : ino.blondelle@outlook.fr</p>
+         
+      </div>
+         <div class="window  rounded shadow-md shadow-inner" > 
+            <p class="title bg-gradient-to-r from-red-400 to-blue-400">Mes competances</p>
+            <div class="grid grid-cols-3  text-center">
                <span class="fab fa-php icon"></span>
                <span class="fab fa-js icon"></span>
                <span class="fab fa-html5 icon"></span>
@@ -25,32 +30,24 @@
                <span class="fab fa-symfony icon"></span>
             </div>
          </div>
-         <div  class="window col-span-3 row-span-2">
-            <p class="title">Info Personnels</p>
-            <p class="text">Lino Blondelle</p>
-            <p class="text">07.81.87.63.74</p>
-            <p class="text">lino.blondelle@outlook.fr</p>
-         </div>
-         <div  class="window col-span-1 ">
-          <p class="title">A props de moi</p>
+         <div  class="window rounded shadow-md shadow-inner" >
+          <p class="title bg-gradient-to-r from-blue-400 to-pink-400">A props de moi</p>
           <p class="text">Etudiant en informatique passioné par la technologie et l'art.</p>
        </div>
-         <div  class="window col-span-1">
-            <p class="title">Terre.obj</p>
+         <div class="window rounded  sm:col-span-1 lg:col-span-2 shadow-md shadow-inner" >
+            <p class="title bg-gradient-to-r from-pink-400 to-green-400">Terre.obj</p>
             <div id="sketch_presentation"> </div>
          </div>
-         <div  class="window ">
-            <p class="title">Info</p>
-            <p class="text">> Ce site utilise la libriaries graphique P5.js</p>
-            <p class="text">> Pour le reste uniquement de l'HTML, JS, et CSS.</p>
+         <div  class="window rounded shadow-md shadow-inner" >
+            <p class="title bg-gradient-to-r from-green-400 to-indigo-400">Info</p>
+            <p class="text">Ce site utilise la libriaries graphique P5.js. Pour le reste uniquement de l'HTML, JS, et CSS.</p>
          </div>
-         <div  class="window col-span-1 ">
-            <p class="title">Ma formation</p>
-            <p class="text">Bac Pro Communication Visuel </p>
-            <p class="text">Dut Informatique Graphique</p>
+         <div  class="window rounded shadow-md shadow-inner" >
+            <p class="title bg-gradient-to-r from-indigo-400 to-red-400">Ma formation</p>
+            <p class="text"> 2015-2018 <br> Bac Pro Communication Visuel <br> 2018-2021 <br> Dut Informatique Graphique</p>
          </div>
-         <div  class="window col-span-1">
-            <p class="title">shapes.exe</p>
+         <div  class="window rounded shadow-md shadow-inner sm:col-span-1 lg:col-span-1">
+            <p class="title bg-gradient-to-r from-red-400 to-pink-400">shapes.exe</p>
             <div id="shapes"> </div>
          </div>
       </div>

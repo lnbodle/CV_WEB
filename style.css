@@ -4,13 +4,12 @@
      background: url("img/background_small.jpg");
      background-repeat: repeat-x repeat-y;
      
-     font-family: Impostor;
-     text-shadow: 3px 3px 3px  rgb(15, 15, 15);
-     margin: 32px;
+     font-family: AkiraBold;
+     /*text-shadow: 3px 3px 3px  rgb(15, 15, 15);*/
  }
 
  .icon {
-    font-size: 4rem;
+    font-size: 3rem;
     margin: 8px;
  }
 
@@ -20,29 +19,26 @@
  }
 
  .window {
-     border: 2px solid;
-     border-radius: 3px;
-     border-color: whitesmoke;
+     /*border: 2px solid;*/
+     /*border-radius: 10px;*/
      background-color: rgba(255, 255, 255, 0.05);
-     display:inline-table;
      color: whitesmoke;
-     /*margin: 16px;*/
-     box-shadow: 3px 3px 3px rgb(15, 15, 15), inset 3px 3px 3px rgb(15, 15, 15);
-
+     /*box-shadow: 3px 3px 3px rgb(15, 15, 15), inset 3px 3px 3px rgb(15, 15, 15);*/
  }
 
 .title {
  
-    color: whitesmoke;
+    color: rgb(255, 255, 255);
+    font-family: AkiraOutline;
+    font-weight: 500;
     padding: 16px;
     margin: 0px;
-    box-shadow: 0px 3px 3px rgb(15, 15, 15);
+    text-shadow:2px 2px rgb(15, 15, 15);
 
-    font-size: 1.2em;
-
+    font-size: 1.3em;
+    letter-spacing: 0.1rem;
 
     border-color: whitesmoke;
-
     border-bottom: 2px solid;
  }
 
@@ -50,7 +46,9 @@
     color: whitesmoke;
     padding: 8px;
     margin: 0px;
-    font-size: 1rem;
+    font-size: 0.8rem;
+    letter-spacing: 0.1rem;
  }
 
- @font-face { font-family: Impostor; src: url('Tommy.otf'); } 
+ @font-face { font-family: AkiraBold; src: url('fonts/Akira\ Bold.otf'); } 
+ @font-face { font-family: AkiraOutline; src: url('fonts/Akira\ Outline.otf'); } 

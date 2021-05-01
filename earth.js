@@ -29,14 +29,14 @@ var earth = function(p) {
       time += 1;
       
       p.background(0,0,0,0);
-      p.noStroke();
-      
+      p.noFill();
+      p.stroke(255);
       
       p.push();
       p.translate(0,0,0);
       p.rotateY(time);
       p.fill(0,0,0,0);
-      p.texture(tex);
+      //p.texture(tex);
       p.sphere(64 + p.sin(time)*10);
       p.pop();
 
