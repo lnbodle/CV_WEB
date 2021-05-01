@@ -32,13 +32,18 @@ var earth = function(p) {
       p.noFill();
       p.stroke(255);
       
+
+      for (let i = 0 ; i<4 ; i+= 1) {
       p.push();
-      p.translate(0,0,0);
+     
+      p.rotateX(time+i*20);
       p.rotateY(time);
+      p.scale(i);
       p.fill(0,0,0,0);
       //p.texture(tex);
-      p.sphere(64 + p.sin(time)*10);
+      p.box(32 + p.sin(time)*10);
       p.pop();
+      }
 
       var canvasDiv = document.getElementById('sketch_presentation');
       var width = canvasDiv.offsetWidth;

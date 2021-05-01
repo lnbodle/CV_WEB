@@ -15,7 +15,7 @@ var shapes = function(p) {
         time += 0.02;
         
            
-              let size = 50;
+              let size = 100;
      
              p.noFill();
             p.stroke(255);
@@ -34,15 +34,15 @@ var shapes = function(p) {
         p.beginShape();
         for (let i = 0 ; i< 2*p.PI ; i+=2*p.PI/prec) {
 
-            let n = -p.noise(i+time/2+index)*size;
+            let n = -p.noise(i+time/2+index)*size/2;
             
             let px = x + p.sin(i+time)*(size+n);
             let py = y - p.cos(i+time)*(size+n);
 
             let d = p.dist(px,py,p.mouseX - p.width/2,p.mouseY-p.height/2);
             if (d<50) {
-            px = x + p.sin(i+time)*(size+n)*2;
-            py = y - p.cos(i+time)*(size+n)*2;
+            px = x + p.sin(i+time)*(size+n)*d/50;
+            py = y - p.cos(i+time)*(size+n)*d/50;
             }
 
             p.vertex(px, py);
