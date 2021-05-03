@@ -2,11 +2,13 @@
  body {
      background-color: rgb(255, 255, 255);
      font-family: AkiraBold;
+     min-height: 200vh;
  }
 
  .icon {
-    font-size: 3rem;
-    margin: 8px;
+   
+   font-size: 2vw;
+    margin: 1vw;
  }
 
  .icon-grid {
@@ -16,9 +18,9 @@
 
  .window {
      border-radius: 50%;
-     width: 25vh;
-     height: 25vh;
-    
+     width: 20vw;
+     height: 20vw;
+  
      position: fixed;
  }
 
@@ -27,8 +29,10 @@
  .text {
     color: rgb(0, 0, 0);
     text-align: center;
-   
-    font-size: 0.6rem;
+
+    font-size: 1.4vw;
+    margin: auto;
+    padding: 1vw;
  }
 
  @font-face { font-family: AkiraBold; src: url('fonts/Young.ttf'); } 

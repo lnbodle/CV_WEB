@@ -8,16 +8,19 @@ var _break = function(p) {
     p.setup = function() {
         sketchCanvas = p.createCanvas(256,256,p.WEBGL);
         sketchCanvas.parent('#_break');
+
+        
+
         p.colorMode(p.HSB, 100);
         
         for (var i = 0 ; i< 10 ; i++) {
             for (var j = 0 ;  j<2 ; j++) {
-               blocks.push(new Block(i*68,32+j*36,64,32));
+             //  blocks.push(new Block(i*68,32+j*36,64,32));
             }
         }
 
-        player = new Player(0,p.height-64,64,16);
-        ball = new Ball(p.width/2,p.height-100,16);
+        //player = new Player(0,p.height-64,64,16);
+        //ball = new Ball(p.width/2,p.height-100,16);
     };
   
     p.draw = function() {
@@ -27,11 +30,13 @@ var _break = function(p) {
         p.strokeWeight(2);
         p.background(0,0,0,0);
         for (var i=0 ; i<blocks.length ; i++) {
-            blocks[i].display();
+            //blocks[i].display();
         }
-        player.display();
-        ball.display();
+        //player.display();
+        //ball.display();
         
+
+        p.ellipse(p.mouseX,p.mouseY,5,5);
         resizeCanvas('_break');
     };
 
@@ -109,7 +114,7 @@ var _break = function(p) {
                   }
               }
 
-              if (!circRect(this.x,this.y,this.size/2,0,0,p.width,p.height)) {
+              if (p.dist(this.x,this.y,p.width,p.height)>(p.width/2)) {
                   this.dir += p.PI + 1;
               }
 

@@ -31,7 +31,7 @@ var earth = function(p) {
     }
     
     p.draw = function() {
-  
+      resizeCanvas('sketch_presentation');
       time += 1;
       
       p.background(0,0,0,0);
@@ -47,11 +47,11 @@ var earth = function(p) {
       p.rotateY(time);
       p.scale(i/1.5);
       p.fill(0,0,0,0);
-      p.box(20 + p.sin(time)*10);
+      p.box(p.width/6 + p.sin(time)*p.width/16);
       p.pop();
       }
 
-      resizeCanvas('sketch_presentation');
+      
 
 
     };

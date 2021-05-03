@@ -6,26 +6,27 @@
       </link>
       <link href="https://unpkg.com/tailwindcss@^2/dist/tailwind.min.css" rel="stylesheet">
       <link rel="stylesheet" href="style.css">
-      <script src="earth.js"></script>
-      <script src="shapes.js"></script>
-      <script src="break.js"></script>
-      <script src="sketch.js"></script>
+      
    </head>
    <body style="background-color: #ffffff;">
      
 
-            <div  class="window window-0 bg-red-100">
+            
+
+            <div  class="flex inline-block window window-3  bg-red-100" >
+               <p class="text">Bienvenu, Je suis Lino Blondelle, Etudiant en informatique passioné par la technologie et l'art.</p>
+            </div>
+
+            <div  class="window window-0 bg-blue-100">
                <div id="_break"> </div>
             </div>
 
-
-
-            <div  class="flex inline-block window window-1 bg-blue-100" >
-               <p class="text mb-auto mt-auto">Nom : Lino Blondelle <br>Tel : 07.81.87.63.74 <br>Email : ino.blondelle@outlook.fr</p>
+            <div  class="flex inline-block window window-1 bg-red-100" >
+               <p class="text">Nom : Lino Blondelle Tel : 07.81.87.63.74 Email : ino.blondelle@outlook.fr</p>
             </div>
 
-            <div class="flex inline-block  window window-2 bg-red-100" >
-               <div class="grid grid-cols-3 text mb-auto mt-auto">
+            <div class="flex inline-block window window-2 bg-blue-100" >
+               <div class="grid grid-cols-3 text">
                   <span class="fab fa-php icon"></span>
                   <span class="fab fa-js icon"></span>
                   <span class="fab fa-html5 icon"></span>
@@ -33,10 +34,6 @@
                   <span class="fab fa-bootstrap icon"></span>
                   <span class="fab fa-symfony icon"></span>
                </div>
-            </div>
-
-            <div  class="flex inline-block window window-3  bg-blue-100" >
-               <p class="text mb-auto mt-auto">Etudiant en informatique passioné par la technologie et l'art.</p>
             </div>
 
             <div class="window window-4  bg-red-100" >
@@ -48,11 +45,11 @@
             </div>
 
             <div  class="flex inline-block window window-6 bg-red-100" >
-               <p class="text mb-auto mt-auto"> 2015-2018 <br> Bac Pro Communication Visuel <br> 2018-2021 <br> Dut Informatique Graphique</p>
+               <p class="text">Pour ce qui est de mes études, j'ai intégrer le lycée de la communication a St Géraud et j'ai ensuite continué en DuT Informatique</p>
             </div>
 
             <div  class="flex inline-block window window-7 bg-blue-100" >
-               <p class="text mb-auto mt-auto">Ce site utilise la libriaries graphique P5.js. Pour le reste uniquement de l'HTML, JS, et CSS.</p>
+               <p class="text">Ce site utilise la libriaries graphique P5.js. Pour le reste uniquement de l'HTML, JS, et CSS.</p>
             </div>
 
           
@@ -133,12 +130,19 @@ function detectMouseWheelDirection( e )
                 var y = (window.innerHeight/2  -  Math.cos(angle+n) * (-window.innerWidth/12)) - w.offsetHeight/2;
                
                 w.style.zIndex = Math.floor(y);
-                w.style.transform = "scale(" + (1+Math.sin(angle+n+Math.PI/2)*0.3) +")";
+
+                var size = (1+Math.sin(angle+n+Math.PI/2)*0.7);
+                var s = map_range(size,-0.3,1.7,0,1) ;
+                w.style.transform = "scale(" + s +")";
                 w.style.top = (y) + "px";
                 w.style.left = (x) + "px";
             }
       }
      </script>
+     <script src="earth.js"></script>
+     <script src="shapes.js"></script>
+     <script src="break.js"></script>
+     <script src="sketch.js"></script>
       
    </body>
 

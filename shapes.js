@@ -8,14 +8,20 @@ var shapes = function(p) {
     };
 
     p.draw = function() {
+        resizeCanvas('shapes');
+
+
         p.background(0, 0, 0, 0);
         time += 0.02;
-        let size = 100;
+        let size = p.width/2;
         p.noFill();
         p.stroke(0);
         p.strokeWeight(2);
         strange(0, 0, size, 10, 0);
-        resizeCanvas('shapes');
+        
+        
+        
+        
     };
 
     function resizeCanvas(div) {
@@ -31,8 +37,8 @@ var shapes = function(p) {
             let n = -p.noise(i + time / 2 + index) * size / 2;
             let px = x + p.sin(i + time) * (size + n);
             let py = y - p.cos(i + time) * (size + n);
-            p.fill(255);
-            p.text('word', px, py);
+      
+    
             let d = p.dist(px, py, p.mouseX - p.width / 2, p.mouseY - p.height / 2);
             if (d < size) {
                 px = x + p.sin(i + time) * (d + n);
