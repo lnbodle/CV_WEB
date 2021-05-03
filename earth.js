@@ -8,7 +8,6 @@ var earth = function(p) {
     var sketchCanvas = p.createCanvas(256,256,p.WEBGL);
   
     sketchCanvas.parent('#sketch_presentation');
-    tex = p.loadImage('tex_earth.jpg');
     p.angleMode(p.DEGREES);
       
   
@@ -23,6 +22,13 @@ var earth = function(p) {
         let pz= p.cos(lo);
         return [px,py,pz]
     }
+
+    function resizeCanvas(div) {
+      var canvasDiv = document.getElementById('sketch_presentation');
+      var width = canvasDiv.offsetWidth;
+      var height = canvasDiv.offsetWidth;
+      p.resizeCanvas(width,height);
+    }
     
     p.draw = function() {
   
@@ -30,7 +36,7 @@ var earth = function(p) {
       
       p.background(0,0,0,0);
       p.noFill();
-      p.stroke(255);
+      p.stroke(0);
       p.strokeWeight(2);
       
 
@@ -39,17 +45,14 @@ var earth = function(p) {
      
       p.rotateX(time+i*20);
       p.rotateY(time);
-      p.scale(i);
+      p.scale(i/1.5);
       p.fill(0,0,0,0);
-      //p.texture(tex);
-      p.box(32 + p.sin(time)*10);
+      p.box(20 + p.sin(time)*10);
       p.pop();
       }
 
-      var canvasDiv = document.getElementById('sketch_presentation');
-      var width = canvasDiv.offsetWidth;
-      var height = canvasDiv.offsetHeight;
-      p.resizeCanvas(width,height);
+      resizeCanvas('sketch_presentation');
+
 
     };
   };

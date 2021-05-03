@@ -22,7 +22,9 @@ var _break = function(p) {
   
     p.draw = function() {
         p.translate(-p.width/2, -p.height/2);
-        p.noStroke();
+        p.noFill();
+        p.stroke(0);
+        p.strokeWeight(2);
         p.background(0,0,0,0);
         for (var i=0 ; i<blocks.length ; i++) {
             blocks[i].display();
@@ -30,12 +32,15 @@ var _break = function(p) {
         player.display();
         ball.display();
         
-        var canvasDiv = document.getElementById('_break');
-        var w = canvasDiv.offsetWidth;
-        var h = canvasDiv.offsetHeight;
-        p.resizeCanvas(w,h);
-        
+        resizeCanvas('_break');
     };
+
+    function resizeCanvas(div) {
+        var canvasDiv = document.getElementById(div);
+        var w = canvasDiv.offsetWidth;
+        var h = canvasDiv.offsetWidth;
+        p.resizeCanvas(w,h);
+    }
 
     var circRect = function(cx, cy, rad, rx, ry, rw, rh) {
         let testX = cx;
