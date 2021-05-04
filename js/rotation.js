@@ -6,8 +6,8 @@ var index = 0;
 
 
 window.onload = function() {
-  rotateArround();
-  setInterval(rotateArround, 1);
+  //rotateArround();
+  //setInterval(rotateArround, 1);
 }
 
 window.onwheel = function() {
@@ -16,6 +16,8 @@ window.onwheel = function() {
     index += detectMouseWheelDirection();
     if (index > circles.length-1) index = 0;
     if (index < 0) index = circles.length-1;
+
+    rotateArround();
 
     console.log(index)
   }
@@ -30,7 +32,7 @@ if ( window.addEventListener ) {
 function rotateArround() {
 
  
-  lerpAngle = lerp(lerpAngle, globalAngle, 0.1);
+  lerpAngle = globalAngle;//lerp(lerpAngle, globalAngle, 0.12);
   
   var screenWidth = window.innerWidth ;
   var screenHeight = window.innerHeight;
