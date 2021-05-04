@@ -1,44 +1,45 @@
-// Autodetect, create and append the renderer to the body element
-
-
-
 var main = document.getElementById('shapes')
+const app = new PIXI.Application({autoResize: true, transparent: true, antialias: true });
+main.appendChild(app.view);
+app.stage.interactive = true;
 
-var time = 0;
+app.stage.on("pointermove",updateMousePosition);
 
-var renderer = PIXI.autoDetectRenderer(256,256, { backgroundColor: 0x000000, antialias: true });
-main.appendChild(renderer.view);
-
-
-var stage = new PIXI.Container();
-
-
-var graphics = new PIXI.Graphics();
-
-
-graphics.beginFill(0xe74c3c); 
-graphics.drawCircle(0, 0, 40);
-graphics.endFill();
-
-
-
-stage.addChild(graphics);
-
-
-animate();
-function animate() {
-
-    renderer.render(stage);
-    time += 0.05;
-
-    graphics.x = renderer.width/2 + Math.sin(time)*24;
-    graphics.y = renderer.height/2 - Math.cos(time)*24;
-
-    const parent = renderer.view.parentNode;
-	renderer.resize(parent.clientWidth, parent.clientHeight);
-
-    requestAnimationFrame(animate);
+var mouseX = 0;
+var mouseY = 0;
+function updateMousePosition(e) {
+    var m = e.data.global;
+    mouseX = m.x;
+    mouseY = m.y;
 }
 
-var ratio = 1;
+resizeView();
+
+var simplex = new SimplexNoise();
+
+const thing = new PIXI.Graphics();
+app.stage.addChild(thing);
+thing.x = app.renderer.width / 2;
+thing.y = app.renderer.height / 2;
+
+var count = 0;
+app.ticker.add(() => {
+    count += 0.005;
+
+    thing.clear();
+    thing.lineStyle(2, 0xff0000, 1);
+    thing.beginFill(0xffFF00, 1);
+    //thing.moveTo(0 + Math.sin(0) * 100, 0 - Math.cos(0) * 100);
+    for (var i = 0 ; i < 2*Math.PI ; i+= Math.PI*2/20) {
+        let px = 0 + Math.sin(i + count) * (70+simplex.noise2D(i+count,i)*30);
+        let py = 0 - Math.cos(i + count) * (70+simplex.noise2D(i+count,i)*30);
+        thing.lineTo(px, py);
+    }
+    thing.closePath();
+});
+
+function resizeView() {
+    const parent = app.view.parentNode;
+	app.renderer.resize(parent.clientWidth, parent.clientHeight);
+}
 

@@ -19,7 +19,7 @@
  }
 
  .window {
-     /*border-radius: 50%;*/
+     border-radius: 50%;
      clip-path: circle(50% at 50% 50%);
 
      width: 20vw;
@@ -29,7 +29,7 @@
 
      transform-origin: center;
      position: fixed;
-     transition: transform 0.3s, opacity 0.3s;
+     transition: transform 0.1s, opacity 0.3s;
 }
  
 
