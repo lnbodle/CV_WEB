@@ -1,0 +1,48 @@
+
+
+ 
+ body {
+     background-color: rgb(255, 255, 255);
+     font-family: Young;
+     min-height: 200vh;
+ }
+
+ .icon {
+   
+   font-size: 2vw;
+    margin: 1vw;
+ }
+
+ .icon-grid {
+    grid: repeat(auto-fit, 1fr);
+    text-align: center;
+ }
+
+ .window {
+     /*border-radius: 50%;*/
+     clip-path: circle(50% at 50% 50%);
+
+     width: 20vw;
+     height: 20vw;
+
+     transform-origin: center;
+     position: fixed;
+     transition: clip-path 0.4s, height 0.4s;
+}
+ 
+.selected {
+   clip-path: circle(100% at 50% 50%);
+   transform: scaleY(50);
+}
+
+ .text {
+    color: rgb(255, 255, 255);
+    text-align: center;
+
+    font-size: 1.4vw;
+    margin: auto;
+    padding: 1vw;
+ }
+
+ @font-face { font-family: Young; src: url('../fonts/Comfortaa-Regular.ttf'); } 
+

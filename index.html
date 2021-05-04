@@ -1,31 +1,52 @@
 <html>
    <head>
-      <title>Lino_Blondelle.exe 'Running...'</title>
+      <title>Lino Blondelle</title>
       <script src="https://cdn.jsdelivr.net/npm/p5@1.3.1/lib/p5.js"></script>
       <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" rel="stylesheet">
       </link>
       <link href="https://unpkg.com/tailwindcss@^2/dist/tailwind.min.css" rel="stylesheet">
-      <link rel="stylesheet" href="style.css">
+
+
+      <link rel="stylesheet" href="css/style.css">
+
+     <script src="js/rotation.js"></script>
+     <script src="js/p5/earth.js"></script>
+     <script src="js/p5/shapes.js"></script>
+     <script src="js/p5/break.js"></script>
+     <script src="js/sketch.js"></script>
       
    </head>
    <body style="background-color: #ffffff;">
-     
 
+
+
+         
+
+            <div  class="flex window window-3  content-center bg-red-500" >
+               <div class="grid grid-cols-1 text">
+                  <span class="fa fa-mouse icon"></span>
+                  <p class="text">Scroller pour voir la suite.</p>
+               </div>
             
+            </div>
 
-            <div  class="flex inline-block window window-3  bg-red-100" >
+            <div  class="flex inline-block window window-3  bg-green-500" >
                <p class="text">Bienvenu, Je suis Lino Blondelle, Etudiant en informatique passioné par la technologie et l'art.</p>
             </div>
 
-            <div  class="window window-0 bg-blue-100">
+            <div  class="window window-0 bg-blue-500">
                <div id="_break"> </div>
             </div>
 
-            <div  class="flex inline-block window window-1 bg-red-100" >
-               <p class="text">Nom : Lino Blondelle Tel : 07.81.87.63.74 Email : ino.blondelle@outlook.fr</p>
+            <div  class="flex inline-block window window-6 bg-blue-500" >
+               <p class="text">Pour ce qui est de mes études, j'ai intégrer le lycée de la communication a St Géraud et j'ai ensuite continué en DuT Informatique</p>
             </div>
 
-            <div class="flex inline-block window window-2 bg-blue-100" >
+            <div class="window window-4  bg-red-500" >
+               <div id="sketch_presentation"> </div>
+            </div>
+
+            <div class="flex inline-block window window-2 bg-green-500" >
                <div class="grid grid-cols-3 text">
                   <span class="fab fa-php icon"></span>
                   <span class="fab fa-js icon"></span>
@@ -36,115 +57,24 @@
                </div>
             </div>
 
-            <div class="window window-4  bg-red-100" >
-               <div id="sketch_presentation"> </div>
-            </div>
-
-            <div  class="window window-5 bg-blue-100">
+            
+            <div  class="window window-5 bg-blue-500">
                <div id="shapes"> </div>
             </div>
 
-            <div  class="flex inline-block window window-6 bg-red-100" >
-               <p class="text">Pour ce qui est de mes études, j'ai intégrer le lycée de la communication a St Géraud et j'ai ensuite continué en DuT Informatique</p>
-            </div>
 
-            <div  class="flex inline-block window window-7 bg-blue-100" >
+
+            <div  class="flex inline-block window window-7 bg-red-500" >
                <p class="text">Ce site utilise la libriaries graphique P5.js. Pour le reste uniquement de l'HTML, JS, et CSS.</p>
             </div>
 
-          
+            <div  class="flex inline-block window window-1 bg-green-500" >
+               <p class="text">Lino Blondelle  <br> 07.81.87.63.74 <br >lino.blondelle@outlook.fr</p>
+            </div>
 
-      
-      </div>
-      <script>
-         var ws = document.getElementsByClassName('window');
-        var g = 0;
-        var lastScrollTop = 0;
-
-        
-         function lerp (start, end, amt){
-            return (1-amt)*start+amt*end
-         }
-
-         
-function detectMouseWheelDirection( e )
-{
-    var delta = null,
-        direction = false
-    ;
-    if ( !e ) { // if the event is not provided, we get it from the window object
-        e = window.event;
-    }
-    if ( e.wheelDelta ) { // will work in most cases
-        delta = e.wheelDelta / 60;
-    } 
-    if ( e.detail ) { // fallback for Firefox
-        delta = -e.detail / 2;
-    }
-    if ( delta !== null ) {
-        direction = delta > 0 ? -1 : 1;
-    }
-
-    return direction;
-}
-
-
-         window.onwheel = function() {
-            
-           
-               g += 2*Math.PI / ws.length * detectMouseWheelDirection();
-          
-         
-           
-         }
- 
-         window.onload = function() {  
-            
-               rotateArround();
-         
-            setInterval(rotateArround, 1);
-         }
-      function map_range(value, low1, high1, low2, high2) {
-            return low2 + (high2 - low2) * (value - low1) / (high1 - low1);
-      }
-
-         var n = 0;
-      function rotateArround() {
-         var angle = 0;
-
-  
-          n = lerp(n,g,0.1);
-
-     
-
-         if (n>=2*Math.PI) {
-           /* (window.scroll(0, 0))*/
-         }
-            for (var i = 0 ; i<ws.length ; i++) {
-
-                angle = map_range(i,0,ws.length,0,Math.PI*2.0);
-
-                var w = ws[i];
-
-                var x = (window.innerWidth /2  +  Math.sin(angle+n) * (window.innerWidth/4)) - w.offsetHeight/2;
-                var y = (window.innerHeight/2  -  Math.cos(angle+n) * (-window.innerWidth/12)) - w.offsetHeight/2;
-               
-                w.style.zIndex = Math.floor(y);
-
-                var size = (1+Math.sin(angle+n+Math.PI/2)*0.7);
-                var s = map_range(size,-0.3,1.7,0,1) ;
-                w.style.transform = "scale(" + s +")";
-                w.style.top = (y) + "px";
-                w.style.left = (x) + "px";
-            }
-      }
-     </script>
-     <script src="earth.js"></script>
-     <script src="shapes.js"></script>
-     <script src="break.js"></script>
-     <script src="sketch.js"></script>
-      
+            <div  class="flex inline-block window window-1 bg-blue-500" >
+               <p class="text">A+</p>
+            </div>
+      </div>  
    </body>
-
-
 </html>

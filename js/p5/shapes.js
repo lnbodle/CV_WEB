@@ -14,21 +14,25 @@ var shapes = function(p) {
         p.background(0, 0, 0, 0);
         time += 0.02;
         let size = p.width/2;
-        p.noFill();
-        p.stroke(0);
+        p.fill(255);
+        p.noStroke();
         p.strokeWeight(2);
         strange(0, 0, size, 10, 0);
-        
-        
-        
-        
+    
     };
 
     function resizeCanvas(div) {
-        var canvasDiv = document.getElementById('sketch_presentation');
+        var canvasDiv = document.getElementById('shapes');
         var w = canvasDiv.offsetWidth;
         var h = canvasDiv.offsetWidth;
         p.resizeCanvas(w,h);
+    }
+
+    function isActive() {
+        var parent = document.getElementById('shapes').parentElement;
+        
+        if (parent.classList.contains('selected')) return true;
+        return false;
     }
 
     var strange = function(x, y, size, prec, index) {
@@ -38,12 +42,14 @@ var shapes = function(p) {
             let px = x + p.sin(i + time) * (size + n);
             let py = y - p.cos(i + time) * (size + n);
       
+            if (isActive()) {
     
             let d = p.dist(px, py, p.mouseX - p.width / 2, p.mouseY - p.height / 2);
             if (d < size) {
                 px = x + p.sin(i + time) * (d + n);
                 py = y - p.cos(i + time) * (d + n);
 
+            }
             }
             p.vertex(px, py);
         }
