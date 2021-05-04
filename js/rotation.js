@@ -6,8 +6,7 @@ var index = 0;
 
 
 window.onload = function() {
-  //rotateArround();
-  //setInterval(rotateArround, 1);
+  rotateArround();
 }
 
 window.onwheel = function() {
@@ -32,7 +31,7 @@ if ( window.addEventListener ) {
 function rotateArround() {
 
  
-  lerpAngle = globalAngle;//lerp(lerpAngle, globalAngle, 0.12);
+  lerpAngle = globalAngle//lerp(lerpAngle, globalAngle, 0.12);
   
   var screenWidth = window.innerWidth ;
   var screenHeight = window.innerHeight;
