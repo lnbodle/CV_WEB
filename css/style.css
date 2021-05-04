@@ -19,8 +19,8 @@
  }
 
  .window {
-     border-radius: 50%;
-     /*clip-path: circle(50% at 50% 50%);*/
+     /*border-radius: 50%;*/
+     clip-path: circle(50% at 50% 50%);
 
      width: 20vw;
      height: 20vw;
@@ -29,12 +29,9 @@
 
      transform-origin: center;
      position: fixed;
-     transition: clip-path 0.5s, transform 0.3s, opacity 0.1s;
+     transition: transform 0.3s, opacity 0.3s;
 }
  
-.selected {
-   /*clip-path: circle(100% at 50% 50%);*/
-}
 
  .text {
     color: rgb(255, 255, 255);

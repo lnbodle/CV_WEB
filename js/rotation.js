@@ -9,22 +9,24 @@ window.onload = function() {
   rotateArround();
 }
 
-window.onwheel = function() {
-    globalAngle -= 2 * Math.PI / circles.length * detectMouseWheelDirection();
+function updateRotation() {
+  globalAngle -= 2 * Math.PI / circles.length * detectMouseWheelDirection();
 
     index += detectMouseWheelDirection();
     if (index > circles.length-1) index = 0;
     if (index < 0) index = circles.length-1;
+}
 
+window.onwheel = function() {
+    updateRotation();
     rotateArround();
-
-    console.log(index)
   }
 
 if ( window.addEventListener ) {
     document.addEventListener( 'DOMMouseScroll', function( e ) {
         /*var scrollDirection = detectMouseWheelDirection( e );*/
-        globalAngle -= 2 * Math.PI / circles.length * detectMouseWheelDirection();
+        updateRotation();
+        rotateArround();
     });
 }
 
