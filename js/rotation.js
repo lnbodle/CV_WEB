@@ -6,11 +6,26 @@ var index = 0;
 
 
 window.onload = function() {
-  rotateArround();
+  //rotateArround();
+
+
 }
 
+function animate() {
+
+    rotateArround();
+
+
+
+  // Start next frame
+  requestAnimationFrame(animate);
+}
+
+// Start animation
+animate();
+
 function updateRotation() {
-  globalAngle -= 2 * Math.PI / circles.length * detectMouseWheelDirection();
+  globalAngle -= ((2 * Math.PI) / circles.length) * detectMouseWheelDirection();
 
     index += detectMouseWheelDirection();
     if (index > circles.length-1) index = 0;
@@ -19,21 +34,20 @@ function updateRotation() {
 
 window.onwheel = function() {
     updateRotation();
-    rotateArround();
   }
 
 if ( window.addEventListener ) {
     document.addEventListener( 'DOMMouseScroll', function( e ) {
         /*var scrollDirection = detectMouseWheelDirection( e );*/
         updateRotation();
-        rotateArround();
+
     });
 }
 
 function rotateArround() {
 
  
-  lerpAngle = globalAngle//lerp(lerpAngle, globalAngle, 0.12);
+  lerpAngle = lerp(lerpAngle, globalAngle, 0.12);
   
   var screenWidth = window.innerWidth ;
   var screenHeight = window.innerHeight;
@@ -44,23 +58,32 @@ function rotateArround() {
 
     var angle = map_range(i, 0, circles.length, 0, Math.PI * 2.0) + lerpAngle;
 
-    var x = screenWidth  / 2 + Math.sin(angle) * screenWidth / 3 - circle.offsetWidth / 2;
-    var y = screenHeight / 2 - Math.cos(angle) * -screenHeight / 5 - circle.offsetHeight / 2;
+    var x = Math.round(screenWidth  / 2 + Math.sin(angle) * screenWidth / 3 - circle.offsetWidth / 2);
+    var y = Math.round(screenHeight / 2 - Math.cos(angle) * -screenHeight / 5 - circle.offsetHeight / 2);
 
-    if (i==index) {
+    /*if (i==index) {
       circle.classList.add('selected') 
     } else {
       if (circle.classList.contains('selected')) {
           circle.classList.remove('selected');
       }
-    }
+    }*/
 
     var size = (1 + Math.sin(angle + Math.PI / 2) * 0.7);
-    size = map_range(size, -0.3, 1.7, 0, 1);
+    size = map_range(size, -0.7, 1.7, 0, 1);
+   
+    var h = size*100;          // 556.845
+    h = Math.round(h); // 556
+    h = h/100; 
+
+    //console.log(h);
+
+    //size = map_range(y, -100, 100, 0, 1);
 
     circle.style.zIndex = Math.floor(y);
-    circle.style.opacity = size;
-    circle.style.transform =  "translate("+(x)+"px,"+(y)+"px)" + "scale(" + size + ")" ;
+    circle.style.opacity = h;
+    circle.style.filter = "blur(" + (1-(size))*16 + "px)"
+    circle.style.transform =  "translate("+(x)+"px,"+(y)+"px)" + "scale(" + h + ")" ;
  
   }
 }

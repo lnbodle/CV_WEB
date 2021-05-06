@@ -1,14 +1,9 @@
-
-
- 
- body {
+body {
      background-color: rgb(255, 255, 255);
      font-family: Young;
-     min-height: 200vh;
  }
 
  .icon {
-   
    font-size: 2vw;
     margin: 1vw;
  }
@@ -18,28 +13,32 @@
     text-align: center;
  }
 
+
  .window {
+      /*transition: transform 0.3s, opacity 0.5s;*/
      border-radius: 50%;
-     clip-path: circle(50% at 50% 50%);
+     /*clip-path: circle(50% at 50% 50%);*/
 
      width: 20vw;
      height: 20vw;
 
-     background-color: blueviolet;
+     filter:progid:DXImageTransform.Microsoft.Blur(PixelRadius='3');
 
-     transform-origin: center;
-     position: fixed;
-     transition: transform 0.1s, opacity 0.3s;
+     background-color: rgb(230, 53, 127);
+
+     position: fixed; 
+
+     display: flex;
+  justify-content: center;
+  align-items: center;
 }
- 
+
 
  .text {
-    color: rgb(255, 255, 255);
-    text-align: center;
-
-    font-size: 1.4vw;
-    margin: auto;
-    padding: 1vw;
+   color:rgb(255, 255, 255);
+   text-align: justify;
+   padding: 15%;
+ 
  }
 
  @font-face { font-family: Young; src: url('../fonts/Comfortaa-Regular.ttf'); } 
