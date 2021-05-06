@@ -59,15 +59,16 @@ function rotateArround() {
     var angle = map_range(i, 0, circles.length, 0, Math.PI * 2.0) + lerpAngle;
 
     var x = Math.round(screenWidth  / 2 + Math.sin(angle) * screenWidth / 3 - circle.offsetWidth / 2);
-    var y = Math.round(screenHeight / 2 - Math.cos(angle) * -screenHeight / 5 - circle.offsetHeight / 2);
+    var y = Math.round(screenHeight / 2 - Math.cos(angle) * -screenHeight / 5 - circle.offsetHeight /2 ) ;
 
-    /*if (i==index) {
+    if (i==index) {
       circle.classList.add('selected') 
+
     } else {
       if (circle.classList.contains('selected')) {
           circle.classList.remove('selected');
       }
-    }*/
+    }
 
     var size = (1 + Math.sin(angle + Math.PI / 2) * 0.7);
     size = map_range(size, -0.7, 1.7, 0, 1);

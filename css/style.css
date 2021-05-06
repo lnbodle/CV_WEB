@@ -1,17 +1,12 @@
 body {
      background-color: rgb(255, 255, 255);
      font-family: Young;
+   
+     background: url('../img/paper.jpg') no-repeat center ;     
+     background-size: cover;
+     
  }
 
- .icon {
-   font-size: 2vw;
-    margin: 1vw;
- }
-
- .icon-grid {
-    grid: repeat(auto-fit, 1fr);
-    text-align: center;
- }
 
 
  .window {
@@ -19,27 +14,83 @@ body {
      border-radius: 50%;
      /*clip-path: circle(50% at 50% 50%);*/
 
-     width: 20vw;
-     height: 20vw;
+    /* border: 20px solid black;*/
 
-     filter:progid:DXImageTransform.Microsoft.Blur(PixelRadius='3');
+     width: 17vw;
+     height: 17vw;
 
-     background-color: rgb(230, 53, 127);
+     
+
+     background-color: white;
+    /* border: 2px solid black;*/
 
      position: fixed; 
 
-     display: flex;
-  justify-content: center;
-  align-items: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    top: 0;
+    transition: height 0.2s ,border-radius 0.2s, align-times 0.2s, background-color 0.2s, margin 0.2s, top 0.2s;
+}
+
+.hidden {
+  display: none ;
+}
+
+
+.selected  {
+  height: 50vh;
+  border-radius: 0vh;
+ /* align-items: left;*/
+  display: inline;
+  padding-top: 2%;
+  background-color : black;
+
+  top: -16vh;
+}
+
+.selected .hidden {
+  border: 0px solid black;
+  color:white;
+  display: block;
+}
+
+.selected .title {
+  color:white;
+
+}
+
+mark {
+  color: black;
+  background-color: white;
 }
 
 
  .text {
-   color:rgb(255, 255, 255);
-   text-align: justify;
-   padding: 15%;
+   font-family:time;
+   color:black;
+   text-align:left;
+
+   padding-left: 15%;
+   padding-right: 15%;
  
  }
 
- @font-face { font-family: Young; src: url('../fonts/Comfortaa-Regular.ttf'); } 
+
+
+ .title {
+  color:black;
+  text-align: justify;
+
+  padding-left: 15%;
+  padding-right: 15%;
+  font-size: 2rem;
+
+}
+
+
+
+ @font-face { font-family: Young; src: url('../fonts/Love.ttf'); } 
+ 
+ @font-face { font-family: time; src: url('../fonts/moderne.otf'); } 
 

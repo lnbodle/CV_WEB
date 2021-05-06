@@ -16,11 +16,17 @@ function updateMousePosition(e) {
 resizeView();
 
 
+
+
+window.addEventListener('resize', function(event) {
+    resizeView();
+}, true);
+
 class Particle {
-    constructor(_x,_y,_size) {
+    constructor(_x,_y,_size,_color) {
     this.graphics = new PIXI.Graphics();
     app2.stage.addChild(this.graphics);
-    this.graphics.beginFill(0xffffff,1);
+    this.graphics.beginFill(_color,1);
     this.graphics.drawCircle(0,0,_size);
     this.graphics.endFill();
         this.x = _x;
@@ -41,8 +47,8 @@ class Particle {
            //     .moveTo(mouseX, mouseY)
            //     .lineTo(this.x, this.y);
 
-            this.x += 1-Math.random()*4;
-            this.y += 1-Math.random()*4;
+            this.x += 1-Math.random()*2;
+            this.y += 1-Math.random()*2;
           // var dir = direction(this.x,this.y,mouseX,mouseY)-Math.PI;
          //       this.x += Math.sin(dir)*4;
          //       this.y -= Math.cos(dir)*4;
@@ -50,19 +56,20 @@ class Particle {
             if (distance(this.x,this.y,mouseX,mouseY)<50) {
                 //this.graphics.scale.set(4, 4);
                 var dir = direction(this.x,this.y,mouseX,mouseY)
-                this.x += Math.sin(dir)*4;
-                this.y -= Math.cos(dir)*4;
+                var spd = 5+Math.random(5);
+                this.x += Math.sin(dir)*spd;
+                this.y -= Math.cos(dir)*spd;
  
             } else {
                 if (distance(this.x,this.y,app2.renderer.width/2,app2.renderer.width/2)>100) {
                 var dir = direction(this.x,this.y,app2.renderer.width/2,app2.renderer.width/2) - Math.PI;
-                this.x += Math.sin(dir)*4;
-                this.y -= Math.cos(dir)*4;
+                this.x += Math.sin(dir)*1;
+                this.y -= Math.cos(dir)*1;
                 } else {
                    
                         var dir = direction(this.x,this.y,app2.renderer.width/2,app2.renderer.width/2) - Math.PI/2;
-                        this.x += Math.sin(dir)*4;
-                        this.y -= Math.cos(dir)*4;
+                        this.x += Math.sin(dir)*1;
+                        this.y -= Math.cos(dir)*1;
                 }
             }
             //console.log(this);
@@ -77,8 +84,14 @@ for (var i = 0; i<app2.renderer.width ; i+=app2.renderer.width/20) {
     
 for (var j = 0; j<app2.renderer.height ; j+=app2.renderer.height/20) {
 
-    particles.push(new Particle(i,j,2 + Math.random()*3));
-
+    var c = 0x24D8D8;
+    if (i < 2) {
+        c = 0x24D8D8;
+    } else {
+        c = 0xFFFFFF;
+    }
+    particles.push(new Particle(i,j,2 + Math.random()*3,c));
+    
 }
 }
 
