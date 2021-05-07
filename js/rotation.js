@@ -1,8 +1,13 @@
 var circles = document.getElementsByClassName('window');
 var globalAngle = 0;
+var previousAngle = 0;
 var lerpAngle = 0;
 var index = 0;
+var swiping = false;
+var swipDir = 0;
 
+var screenWidth = window.innerWidth ;
+var screenHeight = window.innerHeight;
 
 
 window.onload = function() {
@@ -11,11 +16,33 @@ window.onload = function() {
 
 }
 
-
+var angles = [];
+for (var i = 0 ; i<Math.PI*2 ; i+= (Math.PI*2)/circles.length) {
+  angles.push(i);
+  console.log(angles);
+}
 
 function animate() {
 
+  globalAngle = globalAngle%(2*Math.PI);
+  if (globalAngle <= 0) globalAngle = 2*Math.PI;
+   
+
     rotateArround();
+    
+    if (!swiping) {
+      var is_clock = false;
+      if (swipDir > 0) {is_clock = true;} else {is_clock = false;} 
+
+      var wantedAngle = closest(globalAngle,angles);
+      globalAngle = lerp(globalAngle,wantedAngle,0.1);
+      previousAngle = wantedAngle;
+    } else {
+      
+    }
+
+    /*if (globalAngle > 2*Math.PI) globalAngle = 0;
+    if (globalAngle < 0) globalAngle = Math.PI*2;*/
 
 
 
@@ -32,6 +59,21 @@ var touchYstart = 0;
 var touchXend = 0;
 var touchYend = 0;
 
+
+
+function closest(needle, haystack) {
+  return haystack.reduce((a, b) => {
+      let aDiff = Math.abs(a - needle);
+      let bDiff = Math.abs(b - needle);
+
+      if (aDiff == bDiff) {
+          return a > b ? a : b;
+      } else {
+          return bDiff < aDiff ? b : a;
+      }
+  });
+}
+
 window.addEventListener('touchstart',function(e) {
   touchXstart = e.changedTouches[0].pageX;
   console.log(touchXstart);
@@ -40,20 +82,28 @@ window.addEventListener('touchstart',function(e) {
 window.addEventListener('touchmove',function(e){
   var touchobj = e.changedTouches[0]
   touchXend = touchobj.pageX;
+
+  swiping = true;
+
+  var dir = touchXend - touchXstart;
+  globalAngle = map_range(dir,-screenWidth/2,screenWidth/2,-Math.PI/2,Math.PI/2) + previousAngle;
 });
 
 window.addEventListener('touchend',function(e){
   var touchobj = e.changedTouches[0]
 
-  var swipDir = Math.sign(touchXend - touchXstart);
-  updateRotation(swipDir);
-  console.log(swipDir);
+  previousAngle = globalAngle;
+
+  swipDir = Math.sign(touchXend - touchXstart);
+ // updateRotation(-swipDir);
+  console.log(globalAngle);
+  swiping = false;
 });
 
 
 
 function updateRotation(direction) {
-  globalAngle -= ((2 * Math.PI) / circles.length) * direction;
+ /* globalAngle -= ((2 * Math.PI) / circles.length) * direction;*/
 
     index += direction;
     if (index > circles.length-1) index = 0;
@@ -75,16 +125,15 @@ if ( window.addEventListener ) {
 function rotateArround() {
 
  
-  lerpAngle = lerp(lerpAngle, globalAngle, 0.12);
+  //lerp(lerpAngle, globalAngle, 0.12);
   
-  var screenWidth = window.innerWidth ;
-  var screenHeight = window.innerHeight;
+
 
   for (var i = 0; i < circles.length; i++) {
 
     var circle = circles[i];
 
-    var angle = map_range(i, 0, circles.length, 0, Math.PI * 2.0) + lerpAngle;
+    var angle = map_range(i, 0, circles.length, 0, Math.PI * 2.0) + globalAngle;
 
     var x = Math.round(screenWidth  / 2 + Math.sin(angle) * screenWidth / 3 - circle.offsetWidth / 2);
     var y = Math.round(screenHeight / 2 - Math.cos(angle) * -screenWidth / 7 - circle.offsetHeight /2 ) ;
