@@ -25,7 +25,7 @@ for (var i = 0 ; i<Math.PI*2 ; i+= (Math.PI*2)/circles.length) {
 function animate() {
 
   globalAngle = globalAngle%(2*Math.PI);
-  if (globalAngle <= 0) globalAngle = 2*Math.PI;
+  if (globalAngle < 0) globalAngle = 2*Math.PI;
    
 
     rotateArround();
