@@ -39,7 +39,7 @@ body {
 
 
 .selected  {
-  height: 50vh;
+  height: 50%;
   border-radius: 0vh;
  /* align-items: left;*/
   display: inline;

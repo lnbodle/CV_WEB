@@ -11,10 +11,7 @@ window.onload = function() {
 
 }
 
-circles[0].addEventListener('dragEnd',function() {
-  updateRotation();
-  console.log("ehehehehe");
-});
+
 
 function animate() {
 
@@ -29,22 +26,48 @@ function animate() {
 // Start animation
 animate();
 
-function updateRotation() {
-  globalAngle -= ((2 * Math.PI) / circles.length) * detectMouseWheelDirection();
+var touchXstart = 0;
+var touchYstart = 0;
 
-    index += detectMouseWheelDirection();
+var touchXend = 0;
+var touchYend = 0;
+
+window.addEventListener('touchstart',function(e) {
+  touchXstart = e.changedTouches[0].pageX;
+  console.log(touchXstart);
+});
+
+window.addEventListener('touchmove',function(e){
+  var touchobj = e.changedTouches[0]
+  touchXend = touchobj.pageX;
+});
+
+window.addEventListener('touchend',function(e){
+  var touchobj = e.changedTouches[0]
+
+  var swipDir = Math.sign(touchXend - touchXstart);
+  updateRotation(swipDir);
+  console.log(swipDir);
+});
+
+
+
+function updateRotation(direction) {
+  globalAngle -= ((2 * Math.PI) / circles.length) * direction;
+
+    index += direction;
     if (index > circles.length-1) index = 0;
     if (index < 0) index = circles.length-1;
 }
 
 window.onwheel = function() {
-    updateRotation();
+   // updateRotation(detectMouseWheelDirection(););
   }
 
 if ( window.addEventListener ) {
     document.addEventListener( 'DOMMouseScroll', function( e ) {
         /*var scrollDirection = detectMouseWheelDirection( e );*/
-        updateRotation();
+      //  updateRotation(detectMouseWheelDirection(););
 
     });
 }
