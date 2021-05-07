@@ -11,9 +11,10 @@ window.onload = function() {
 
 }
 
-window.ontouchstart = function() {
-  globalAngle -= ((2 * Math.PI) / circles.length) * detectMouseWheelDirection();
-}
+circles[0].addEventListener('dragEnd',function() {
+  updateRotation();
+  console.log("ehehehehe");
+});
 
 function animate() {
 
