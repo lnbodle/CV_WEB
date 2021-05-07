@@ -63,7 +63,7 @@ function rotateArround() {
     var angle = map_range(i, 0, circles.length, 0, Math.PI * 2.0) + lerpAngle;
 
     var x = Math.round(screenWidth  / 2 + Math.sin(angle) * screenWidth / 3 - circle.offsetWidth / 2);
-    var y = Math.round(screenHeight / 2 - Math.cos(angle) * -screenWidth / 5 - circle.offsetHeight /2 ) ;
+    var y = Math.round(screenHeight / 2 - Math.cos(angle) * -screenWidth / 7 - circle.offsetHeight /2 ) ;
 
     if (i==index) {
       circle.classList.add('selected') 
