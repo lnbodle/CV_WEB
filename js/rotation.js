@@ -129,14 +129,14 @@ function rotateArround() {
     var angle = map_range(i, 0, circles.length, 0, Math.PI * 2.0) + globalAngle;
 
     var carousselWidth, carousselHeight;
-    if (window.innerWidth > 1024) {
+   /* if (window.innerWidth > 1024) {*/
 
       carousselWidth =   screenWidth / 3;
       carousselHeight =  screenHeight / 7;
-    } else {
+    /* } else {
       carousselWidth =   screenWidth /2;
       carousselHeight =  screenHeight / 7;
-    }
+    }*/
 
     var x = Math.round((screenWidth  / 2 ) + Math.sin(angle) * carousselWidth)- circle.offsetWidth / 2;
     var y = Math.round((screenHeight / 2 ) + Math.cos(angle) * carousselHeight- circle.offsetHeight / 2);
@@ -156,7 +156,7 @@ function rotateArround() {
    
     var h = Math.round(size*100)/100;        
   
-    circle.style.zIndex = Math.floor(y);
+    circle.style.zIndex = Math.floor(-y);
     circle.style.opacity = h;
     circle.style.filter = "blur(" + (1-(size))*8 + "px)"
     circle.style.transform =  "translate("+(x)+"px,"+(y)+"px)" + "scale(" + h + ")" ;
