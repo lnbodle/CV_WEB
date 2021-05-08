@@ -42,13 +42,26 @@ body {
     transition: height 0.2s ,border-radius 0.2s, align-times 0.2s, background-color 0.2s, margin 0.2s, top 0.2s;
 }
 
+@media only screen and (max-width: 768px) {
+  /* For mobile phones: */
+  .window {
+    width: 25vh;
+    height : 25vh;
+    background-color: brown;
+  }
+
+  .selected {
+    height: 100vh;
+  }
+}
+
 .hidden {
   display: none ;
 }
 
 
 .selected  {
-  height: 50%;
+  height: 50vh;
   border-radius: 0vh;
  /* align-items: left;*/
   display: inline;

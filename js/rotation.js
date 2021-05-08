@@ -133,14 +133,9 @@ function rotateArround() {
 
       carousselWidth =   screenWidth / 3;
       carousselHeight =  screenHeight / 7;
-
-      circle.style.width = "17vw"
-      circle.style.height = "17vw"
     } else {
       carousselWidth =   screenWidth /2;
       carousselHeight =  screenHeight / 7;
-      circle.style.width = "17vh"
-      circle.style.height = "17vh"
     }
 
     var x = Math.round((screenWidth  / 2 ) + Math.sin(angle) * carousselWidth)- circle.offsetWidth / 2;
@@ -163,7 +158,7 @@ function rotateArround() {
   
     circle.style.zIndex = Math.floor(y);
     circle.style.opacity = h;
-    circle.style.filter = "blur(" + (1-(size))*16 + "px)"
+    circle.style.filter = "blur(" + (1-(size))*8 + "px)"
     circle.style.transform =  "translate("+(x)+"px,"+(y)+"px)" + "scale(" + h + ")" ;
   }
 }
