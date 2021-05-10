@@ -129,20 +129,34 @@ function rotateArround() {
     var angle = map_range(i, 0, circles.length, 0, Math.PI * 2.0) + globalAngle;
 
     var carousselWidth, carousselHeight;
-   /* if (window.innerWidth > 1024) {*/
+    if (window.innerWidth > window.innerHeight) {
 
       carousselWidth =   screenWidth / 3;
       carousselHeight =  screenHeight / 7;
-    /* } else {
+     } else {
       carousselWidth =   screenWidth /2;
       carousselHeight =  screenHeight / 7;
-    }*/
+    }
 
     var x = Math.round((screenWidth  / 2 ) + Math.sin(angle) * carousselWidth)- circle.offsetWidth / 2;
     var y = Math.round((screenHeight / 2 ) + Math.cos(angle) * carousselHeight- circle.offsetHeight / 2);
 
+    
+
+    var size = (1 + Math.sin(angle + Math.PI / 2) * 0.7);
+    size = map_range(size, -0.7, 1.7, 0, 1);
+   
+    var h = Math.round(size*100)/100;        
+  
+    circle.style.zIndex = Math.floor(y);
+    circle.style.opacity = h;
+    circle.style.filter = "blur(" + (1-(size))*16 + "px)"
+    circle.style.transform =  "translate("+(x)+"px,"+(y)+"px)" + "scale(" + h + ")" ;
+
+
     if (i==index) {
       circle.classList.add('selected') 
+      circle.style.zIndex = Math.floor(9999);
     } 
     else 
     {
@@ -150,20 +164,8 @@ function rotateArround() {
           circle.classList.remove('selected');
       }
     }
-
-    var size = (1 + Math.sin(angle + Math.PI / 2) * 0.7);
-    size = map_range(size, -0.7, 1.7, 0, 1);
-   
-    var h = Math.round(size*100)/100;        
-  
-    circle.style.zIndex = Math.floor(-y);
-    circle.style.opacity = h;
-    circle.style.filter = "blur(" + (1-(size))*8 + "px)"
-    circle.style.transform =  "translate("+(x)+"px,"+(y)+"px)" + "scale(" + h + ")" ;
   }
 }
-
-
 
 //Utilitaries function
 function map_range(value, low1, high1, low2, high2) {

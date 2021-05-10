@@ -1,13 +1,7 @@
 body {
-     background-color: rgb(255, 255, 255);
+     background-color: #eb4b33;
      font-family: Young;
-   
-     background: url('../img/paper.jpg') no-repeat center ;     
-     background-size: cover;
-     
  }
-
-
 
  .window {
 
@@ -19,28 +13,19 @@ body {
     -ms-user-select: none;
     user-select: none;
 
-      /*transition: transform 0.3s, opacity 0.5s;*/
-     border-radius: 50%;
-     /*clip-path: circle(50% at 50% 50%);*/
-
-    /* border: 20px solid black;*/
-
-     width: 17vw;
-     height: 17vw;
-
-     
-
-     background-color: white;
-    /* border: 2px solid black;*/
-
-     position: fixed; 
+    border-radius: 50%;
+    width: 17vw;
+    height: 17vw;
+    background-color: white;
+    position: fixed; 
 
     display: flex;
     justify-content: center;
     align-items: center;
     top: 0;
-    transition: height 0.2s ,border-radius 0.2s, align-times 0.2s, background-color 0.2s, margin 0.2s, top 0.2s;
+    transition: height 0.2s ,border-radius 0.2s, align-times 0.2s, background-color 0.2s, margin 0.2s, top 0.2s, outline 0.05s;
 }
+
 
 @media  all and (orientation:portrait) {
   /* For mobile phones: */
@@ -68,7 +53,7 @@ body {
   padding-top: 2%;
   background-color : black;
 
-  /*top: -16vh;-*/
+  top: -16vh;
 }
 
 .selected .hidden {
