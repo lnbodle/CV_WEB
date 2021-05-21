@@ -1,10 +1,15 @@
 body {
      background-color: #eb4b33;
-     font-family: Young;
+     font-family: Love;
+
+     background: url(../img/paper_small.jpg) no-repeat center center fixed; 
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
  }
 
  .window {
-
     cursor: default;
     -webkit-touch-callout: none;
     -webkit-user-select: none;
@@ -20,51 +25,46 @@ body {
     position: fixed; 
 
     display: flex;
+    text-align: center;
+
+    flex-direction: row;
     justify-content: center;
     align-items: center;
     top: 0;
     transition: height 0.2s ,border-radius 0.2s, align-times 0.2s, background-color 0.2s, margin 0.2s, top 0.2s, outline 0.05s;
 }
 
-
 @media  all and (orientation:portrait) {
-  /* For mobile phones: */
   .window {
     width: 25vh;
     height : 25vh;
-
   }
-
   .selected {
     height: 50vh;
   }
 }
 
 .hidden {
-  display: none ;
+  display: none;
+  opacity: 0;
+  transition: opacity 5s;
 }
-
 
 .selected  {
   height: 50vh;
   border-radius: 0vh;
- /* align-items: left;*/
   display: inline;
   padding-top: 2%;
   background-color : black;
-
   top: -16vh;
+
+  opacity: 1;
 }
 
 .selected .hidden {
-  border: 0px solid black;
   color:white;
   display: block;
-}
-
-.selected .title {
-  color:white;
-
+  opacity: 1;
 }
 
 mark {
@@ -72,32 +72,32 @@ mark {
   background-color: white;
 }
 
-
- .text {
-   font-family:time;
+.text {
+   font-family:Moderne;
    color:black;
    text-align:left;
-
-   padding-left: 15%;
-   padding-right: 15%;
+   padding-left: 5%;
+   padding-right: 5%;
+   font-size: 1.2vw;
+   
  
  }
 
-
-
  .title {
   color:black;
-  text-align: justify;
-
-  padding-left: 15%;
-  padding-right: 15%;
-  font-size: 2rem;
-
+  padding-left: 5%;
+  padding-right: 5%;
+  font-size: 1.5vw;
 }
 
+.selected .title {
+  color:white;
+}
 
-
- @font-face { font-family: Young; src: url('../fonts/Love.ttf'); } 
- 
- @font-face { font-family: time; src: url('../fonts/moderne.otf'); } 
+.link {
+  color: white;
+  border-bottom: white;
+}
+@font-face { font-family: Love; src: url('../fonts/Love.ttf'); } 
+@font-face { font-family: Moderne; src: url('../fonts/moderne.otf'); } 
 

@@ -8,6 +8,7 @@ var lerpAngle = 0;
 var index = 0;
 var swiping = false;
 var swipDir = 0;
+var swipDirFloat = 0;
 
 var screenWidth = window.innerWidth ;
 var screenHeight = window.innerHeight;
@@ -17,34 +18,34 @@ var screenHeight = window.innerHeight;
 var angles = [];
 for (var i = 0 ; i<=Math.PI*2 ; i+= (Math.PI*2)/circles.length) {
   angles.push(i);
-  console.log(angles);
+ // console.log(angles);
 }
 
 //Main loop
 function animate() {
 
-  globalAngle = globalAngle%(2*Math.PI);
-  if (globalAngle <= 0) globalAngle = 2*Math.PI;
+  
+  //globalAngle = globalAngle%(2*Math.PI);
+  while (globalAngle < -Math.PI/circles.length) globalAngle += 2*Math.PI;
+  while (globalAngle >= 2*Math.PI - 0.001) globalAngle -= 2*Math.PI;
 
-
-  index = Math.round(map_range(globalAngle,0,Math.PI*2,circles.length,0));
-
+  if (globalAngle > -0.1 && globalAngle < Math.PI/circles.length -0.1) {
+    index = 0;
+  } else {
+    index = Math.round(map_range(globalAngle,0,Math.PI*2,circles.length,0));
+  }
+ 
     rotateArround();
     
     if (!swiping) {
-      
-
       var wantedAngle = closest(globalAngle,angles);
-      /*if (wantedAngle == (2*Math.PI) ) {
-       
-        globalAngle = lerp(globalAngle,0,0.1);
-      } else {*/
-        globalAngle = lerp(globalAngle,wantedAngle,0.1);
-      /*}*/
-     
-    
       previousAngle = wantedAngle;
+      globalAngle = rLerp(globalAngle,wantedAngle,0.05);
+
+      
+      
     } 
+    
   requestAnimationFrame(animate);
 }
 animate();
@@ -66,11 +67,13 @@ function actionMove(e) {
   swiping = true;
   var dir = touchXend - touchXstart;
   globalAngle = map_range(dir,-screenWidth/2,screenWidth/2,-Math.PI/2,Math.PI/2) + previousAngle;
+
 }
 
 function actionEnd(e) {
   var touchobj = e.changedTouches[0];
   previousAngle = globalAngle;
+
   swipDir = Math.sign(touchXend - touchXstart);
   swiping = false;
 }
@@ -108,7 +111,11 @@ window.addEventListener('mousemove',function(e) {
   touchXend = touchobj.pageX;
 
   var dir = touchXend - touchXstart;
+  swipDirFloat = map_range(dir,0,screenWidth,0,1);
+
+
   globalAngle = map_range(dir,-screenWidth/2,screenWidth/2,-Math.PI/2,Math.PI/2) + previousAngle;
+
   console.log("pressed");
 });
 
@@ -165,26 +172,4 @@ function rotateArround() {
       }
     }
   }
-}
-
-//Utilitaries function
-function map_range(value, low1, high1, low2, high2) {
-    return low2 + (high2 - low2) * (value - low1) / (high1 - low1);
-}
-
-function lerp(start, end, amt) {
-    return (1 - amt) * start + amt * end
-}
-  
-function closest(needle, haystack) {
-  return haystack.reduce((a, b) => {
-      let aDiff = Math.abs(a - needle);
-      let bDiff = Math.abs(b - needle);
-
-      if (aDiff == bDiff) {
-          return a > b ? a : b;
-      } else {
-          return bDiff < aDiff ? b : a;
-      }
-  });
 }
