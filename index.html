@@ -1,112 +1,119 @@
 <html>
-	<head>
-		<title>Lino Blondelle</title>
-		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-		<script src="https://cdnjs.cloudflare.com/ajax/libs/pixi.js/5.1.3/pixi.min.js"></script>
-		<link rel="stylesheet" href="css/style.css">
-		<script src="lib/matter.min.js"></script>
-		<script src="lib/simplex-noise.js"></script>
-		</head>
-      
-		<body id = 'body' class="back" >
-			<div class="window" >
-				<p class="title">Intro</p>
-				<p class="hidden text" >
-					Bienvenue sur mon CV ! Cliquez et faites glisser pour parcourir mes centres d’intérêts et mes compétences.
-				</p>
-			</div>
 
-			<div class="window" >
-				<p class="title">À PROPOS DE MOI</p>
-				<p class="hidden text" >
-					Lino Blondelle, titulaire d’un DUT Informatique Graphique et d’un Baccalauréat Professionnel en Communication Visuelle,  
-					je suis passionné par la programmation, le dessin, la musique et toutes formes de créations artistiques. 
-				</p>
-			</div>
+<head>
+	<title>Lino Blondelle</title>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/pixi.js/5.1.3/pixi.min.js"></script>
+	<link rel="stylesheet" href="css/style.css">
+	<script src="lib/matter.min.js"></script>
+	<script src="lib/simplex-noise.js"></script>
+</head>
 
-			<div class="window" id="particles"></div>
+<body id='body' class="back">
+	<div class="window">
+		<p class="title">Intro</p>
+		<p class="hidden text">
+			Bienvenue sur mon CV ! Cliquez et faites glisser pour parcourir mes centres d’intérêts et mes compétences.
+		</p>
+	</div>
 
-			
+	<div class="window">
+		<p class="title">À PROPOS DE MOI</p>
+		<p class="hidden text">
+			Lino Blondelle, titulaire d’un DUT Informatique Graphique et d’un Baccalauréat Professionnel en
+			Communication Visuelle,
+			je suis passionné par la programmation, le dessin, la musique et toutes formes de créations artistiques.
+		</p>
+	</div>
 
-			<div class="window" >
-				<p class="title">DUT Informatique</p>
-				<p class="hidden text" >
-					- Programmation <br>
-					- Développement web <br>
-					- Conception objet <br>
-					- Modélisation 3D <br>
-					- Texturing 
-				</p>
-			</div>
+	<div class="window" id="particles">
+		<p class="hidden text">
+			Passer la souris pour déplacer les bulles.<br>
+		</p>
+	</div>
 
-			<div class="window" >
-				<p class="title">LANGAGES</p>
-				<p class="hidden text" >
-					- Javascript <br>
-					- C# <br>
-					- C++ <br>
-					- Php <br>
-					- Python.
-				</p>
-		
-				<p class="hidden title">FRAMEWORKS</p>
-				<p class="hidden text" >
-					Symfony
-				</p>
-			</div>
 
-			<div class="window" >
-				<p class="title">EXPÉRIENCES PROFESSIONELLES</p>
-				<p class="hidden text" >
-					2 Mois en tant que développeur Front End pour la société D-It.<br>
-					-Intégration de toute la partie front end pour la platforme d'une mutuelle.
-				</p>
-			</div>
 
-			<div class="window" id="shapes"></div>
+	<div class="window">
+		<p class="title">COMPÉTENCES DEVELOEPEMENT</p>
 
-			<div class="window" >
-				<p class="title">BAC PRO COMMUNCATION VISUELLE</p>
-				<p class="hidden text" >
-					Bac Pro - Communication 
-					Visuel option Plurimédia<br>
-					2015 - 2018 <br>
-					- Indesign <br>
-					- Photoshop <br>
-					- Illustrator <br>
-					- Histoire de l’art <br>
-					- Mise en page 
-				</p>
-			</div>
+		<p class="hidden text">
+			- Programmation <br>
+			- Développement web <br>
+			- Conception objet <br>
+			- Modélisation 3D <br>
+			- Texturing
 
-			<div class="window" id="physics">
-				<canvas id="physics_canvas"> </canvas>
-			</div>
+		</p>
+		<h2 class="hidden title"> Language </h2>
+		<p class="hidden text">
+			- Javascript <br>
+			- C# <br>
+			- C++ <br>
+			- Php <br>
+			- Python.
+		</p>
+		<p class="hidden title">FRAMEWORKS</p>
+		<p class="hidden text">
+			Symfony
+		</p>
+	</div>
 
-			<div class="window" >
-				<p class="title">EXPÉRIENCES EN GRAPHISME</p>
-				<p class="hidden text" >
-					Stage dans les entreprise : 
-					– Tan Gram Com <br>
-					– Mavic <br>
-					– Glasgow Kevin College <br>
-					– All Numeric<br>
-					Mise en page, création graphique et autres.
-				</p>
-			</div>
 
-			<div class="window" >
-				<p class="title">CONTACTEZ-MOI</p>
-				<p class="hidden text" >
-					lino.blondelle@outlook.fr <br> 07 81 87 63 74 <br> <a class="link" href=" https://www.linkedin.com/in/lino-blondelle/">Linkedin</a> <br> <a class="link" href="https://linoblondelle.netlify.app/index.html">Portfolio</a>
-				</p>
-			</div>
-			
-			<script src="helpers.js"></script>
-			<script src="js/rotation.js"></script>
-			<script src="particles.js"></script>
-			<script src="shape.js"></script>
-			<script src="physics.js"></script>
-			
-		</body>
+	<div class="window">
+		<p class="title">EXPÉRIENCES PROFESSIONNEL</p>
+		<p class="hidden title">Développement</p>
+		<p class="hidden text">
+			2 Mois en tant que développeur Front End pour la société D-It.<br>
+			-Intégration de toute la partie front end pour la platforme d'une mutuelle.
+		</p>
+		<p class="hidden title">GRAPHISME</p>
+		<p class="hidden text">
+			Stage dans les entreprise : <br>
+			– Tan Gram Com <br>
+			– Mavic <br>
+			– Glasgow Kevin College <br>
+			– All Numeric<br>
+			Mise en page, création graphique et autres.
+		</p>
+	</div>
+
+	<div class="window" id="shapes"></div>
+
+	<div class="window">
+		<p class="title">COMPÉTENCES GRAPHISME</p>
+		<p class="hidden text">
+			- Indesign <br>
+			- Photoshop <br>
+			- Illustrator <br>
+			- Histoire de l’art <br>
+			- Mise en page
+		</p>
+	</div>
+
+	<div class="window" id="physics">
+		<canvas id="physics_canvas"> </canvas>
+	</div>
+
+	<div class="window">
+		<p class="title">CONTACTEZ-MOI</p>
+		<p class="hidden text">
+			lino.blondelle@outlook.fr <br> 07 81 87 63 74 <br> <a class="link"
+				href=" https://www.linkedin.com/in/lino-blondelle/">Linkedin</a> <br> <a class="link"
+				href="https://linoblondelle.netlify.app/index.html">Portfolio</a>
+		</p>
+
+		<a class="hidden" href="download/CV_Lino_Blondelle.pdf" download="CV_Lino_Blondelle">
+			Télécharger mon CV statique
+		</a>
+	</div>
+
+	<script src="helpers.js"></script>
+	<script src="js/rotation.js"></script>
+	<script src="particles.js"></script>
+	<script src="shape.js"></script>
+	<script src="physics.js"></script>
+
+</body>
+
 </html>

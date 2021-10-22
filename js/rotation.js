@@ -145,7 +145,7 @@ function rotateArround() {
       carousselHeight =  screenHeight / 7;
     }
 
-    var x = Math.round((screenWidth  / 2 ) + Math.sin(angle) * carousselWidth)- circle.offsetWidth / 2;
+    var x = Math.round((screenWidth  / 2 ) + Math.sin(angle) * carousselWidth - circle.offsetWidth / 2);
     var y = Math.round((screenHeight / 2 ) + Math.cos(angle) * carousselHeight- circle.offsetHeight / 2);
 
     
@@ -157,7 +157,7 @@ function rotateArround() {
   
     circle.style.zIndex = Math.floor(y);
     circle.style.opacity = h;
-    circle.style.filter = "blur(" + (1-(size))*16 + "px)"
+    circle.style.filter = "blur(" + Math.round((1-(size))*16) + "px)"
     circle.style.transform =  "translate("+(x)+"px,"+(y)+"px)" + "scale(" + h + ")" ;
 
 
